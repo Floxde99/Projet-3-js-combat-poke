@@ -1,7 +1,6 @@
 const prompt = require("prompt-sync")()
 let PVJ = 100
 let PVO = 100
-
 let choice = 0
 let attacks = [-10,15,-20,-30]
 let min = [1,1,1,1]
