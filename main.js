@@ -12,8 +12,6 @@ console.log("Attaque 1 : Nom: Frappe Rapide / Puissance: 10 PV/ Précision: 50%"
 console.log("Attaque 2 : Nom: Soin Léger / Puissance: Soigne 15 PV / Précision: 33.33%");
 console.log("Attaque 3 : Nom: Coup Puissant / Puissance: 20 PV / Précision: 33.33% ");
 console.log("Attaque 4 : Nom: Frappe Dévastatrice / Puissance: 30 PV / Précision: 25% ");
-
-
 while (PVJ > 0 && PVO > 0) {
     console.log("Tu as ", PVJ, " PV");
     console.log("Ton adversaire a ", PVO, " PV");
@@ -22,24 +20,18 @@ while (PVJ > 0 && PVO > 0) {
         choice = Number(prompt("Valeur incorrect!  "))
     }
     console.log(choice);
-    
-    Attack(1, choice, attacks, min, max[choice-1])
+    Attack(1, choice, attacks, min, max[choice - 1])
     if (choice != -1) {
         IA()
     }
 }
-
-
 if (PVJ > 0) {
     console.log("Bravo tu as gagner contre un grille pain");
-
 } else {
     console.log("Sombre merde tu as perdu");
-
 }
 function Attack(perso, num, attacks, min, max) {
     console.log(num);
-    
     if (num == -1) {
         console.log("Liste des Attaques Disponibles");
         console.log("Attaque 1 : Nom: Frappe Rapide / Puissance: 10 PV/ Précision: 50%");
@@ -49,40 +41,34 @@ function Attack(perso, num, attacks, min, max) {
     } else {
         console.log("Attaque : ", num);
         let prob = randomize(min, max)
-
         if (prob == 2) {
             console.log("cool");
-
             if (perso == 1) {
                 if (num != 2) {
-                    console.log("Touché tu lui à enlevé", attacks[num-1], " PV");
-                    PVO -= attacks[num-1]
+                    console.log("Touché tu lui à enlevé", attacks[num - 1], " PV");
+                    PVO -= attacks[num - 1]
                 } else {
-                    console.log("Tu t'es régénéré ", attacks[num-1], " PV");
-                    PVJ += attacks[num-1]
+                    console.log("Tu t'es régénéré ", attacks[num - 1], " PV");
+                    PVJ += attacks[num - 1]
                 }
-
             } else {
                 if (num != 2) {
-                    console.log("Touché il t'a enlevé", attacks[num-1], " PV");
-                    PVJ -= attacks[num-1]
+                    console.log("Touché il t'a enlevé", attacks[num - 1], " PV");
+                    PVJ -= attacks[num - 1]
                 } else {
-                    console.log("Il s'est régénéré ", attacks[num-1], " PV");
-                    PVO += attacks[num-1]
+                    console.log("Il s'est régénéré ", attacks[num - 1], " PV");
+                    PVO += attacks[num - 1]
                 }
-
             }
         } else {
             console.log("Raté");
         }
     }
-
 }
 function randomize(min, max) {
     return Math.round(Math.random() * (max - min) + min)
 }
 function IA() {
     let val = randomize(1, 4)
-    
     Attack(2, val, attacks, min, max[val])
 }
