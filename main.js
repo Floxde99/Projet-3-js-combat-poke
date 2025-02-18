@@ -19,7 +19,6 @@ while (PVJ > 0 && PVO > 0) {
     while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != -1) {
         choice = Number(prompt("Valeur incorrect!  "))
     }
-    console.log(choice);
     Attack(1, choice, attacks, min, max[choice - 1])
     if (choice != -1) {
         IA()
@@ -31,7 +30,6 @@ if (PVJ > 0) {
     console.log("Sombre merde tu as perdu");
 }
 function Attack(perso, num, attacks, min, max) {
-    console.log(num);
     if (num == -1) {
         console.log("Liste des Attaques Disponibles");
         console.log("Attaque 1 : Nom: Frappe Rapide / Puissance: 10 PV/ Précision: 50%");
